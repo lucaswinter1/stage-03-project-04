@@ -1,0 +1,163 @@
+*{ 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{ 
+    font-size: 62.5%; 
+    --ff-heading: 'Epilogue', sans-serif;
+    --ff-bg-primary: #28293E;
+    --fc-primary: #ffffff;
+    --fc-secondary: #BBB3E5;
+    --fs-body: 1.6rem;
+    --fs-heading: 4rem;
+}
+
+body{ 
+    background-color: var(--ff-bg-primary);
+    font-family: var(--ff-heading);
+    color: var(--fc-primary);
+    font-size: var(--fs-body);
+}
+
+.page{ 
+    max-width: 33rem;
+    margin: 0 auto;
+}
+
+main{ 
+    display: grid;
+    gap: 3.2rem;
+    animation: downtop 700ms 350ms backwards;
+}
+
+header{ 
+    margin-top: 10rem;
+    font-family: var(--ff-heading);
+    text-align: center;
+    animation: topdown 700ms;
+}
+
+header h1{ 
+    font-size: var(--fs-heading);
+    letter-spacing: -1px;
+    margin-bottom: 8rem;
+    line-height: 4.8rem;
+}
+
+header p{ 
+    letter-spacing: 3px;
+    color: var(--fc-secondary);
+    margin-bottom: 2.0rem;
+    line-height: 3.2rem;
+}
+
+img{ 
+    width: 100%;
+    height: auto;
+}
+
+.card{ 
+    position: relative;
+    transition: transform 300ms;
+}
+
+.card:hover{ 
+    transform: scale(1.1);
+}
+
+.card img{ 
+    height: 41.6rem;
+    object-fit: cover;
+    border-radius: 6px;  
+}
+
+.card img:hover{ 
+    filter: blur(3px);
+}
+
+.card h2{ 
+    position: absolute;
+    bottom: 5.2rem;
+    left: 2.8rem;
+    font-weight: 800;
+    font-size: var(--fs-heading);
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+}
+
+.card h2 span{ 
+    display: inline-flex;
+    align-items: center;
+    color: var(--ff-bg-primary);
+    background-color: white;
+    padding: 0 1.6rem;
+    border-radius: 2rem;
+    font-weight: 400;
+    font-size: var(--fs-body);
+    height: 3.8rem;
+    width: fit-content;
+}
+
+@keyframes topdown{ 
+    0%{ 
+        opacity: 0;
+        transform: translateY(-15px)
+    }
+    
+
+    100%{ 
+        opacity: 1;
+        transform: translateY(0px)
+    }
+}
+
+@keyframes downtop{ 
+    0%{ 
+        opacity: 0;
+        transform: translateY(15px)
+    }
+    
+
+    100%{ 
+        opacity: 1;
+        transform: translateY(0px)
+    }
+}
+
+/* Este @media abaixo serve para definir o que eu quero que aconteça 
+quando o dispositivo tiver mais que 700px de largura, ou seja, desktop*/
+@media (min-width: 930px) { 
+    :root{ 
+        --fs-heading: 5.6rem;
+    }
+    
+    .page{ 
+        max-width: 117rem;
+        padding: 0 5rem;
+    }
+
+    main{ 
+        grid-template-areas: 
+            "A B B"
+            "C C D";
+    }
+
+    main div:nth-child(1){ 
+        grid-area: A;
+    }
+
+    main div:nth-child(2){ 
+        grid-area: B;
+    }
+
+    main div:nth-child(3){ 
+        grid-area: C;
+    }
+
+    main div:nth-child(4){ 
+        grid-area: D;
+    }
+}
